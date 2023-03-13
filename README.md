@@ -4,7 +4,7 @@ Generate some payload to bypass restriction when you perform a file upload
 ```
 python upfile.py
 ```
-Generate in Payloads/ all extension for PHP
+Generate in `Payloads/` all extension for PHP
 
 Default name : `payload`
 
