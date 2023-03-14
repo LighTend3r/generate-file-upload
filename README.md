@@ -34,7 +34,7 @@ Generate all files bypass for PHP, which contain `magicNumber + payload`
 
 
 ```
-python upfile.py -ext png -h png
+python upfile.py -ext png -ht png
 ```
 Generate `.htaccess` which allow execution of php whith extension .png and create `paylaod.png`
 
