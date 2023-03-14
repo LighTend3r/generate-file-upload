@@ -65,7 +65,7 @@ Generate some payload to bypass restriction when you perform a file upload
 
 options:
   -h, --help            show this help message and exit
-  -d, --debug           Seen the debug to see the process
+  -d, --debug           Show debugging to see the process
   -p <payload>, --payload <payload>
                         The payload in the files
   -f {php}, --file {php}
