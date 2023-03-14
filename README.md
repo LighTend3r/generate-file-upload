@@ -72,7 +72,7 @@ options:
                         The type of the files
   -ext <ext>, --extension <ext>
                         Generate the payload with specific extension
-  -b, --bypass          Bypass the restriction
+  -b, --bypass          Generate some payload to bypass the restriction
   -n <name>, --name <name>
                         Name of the file
   -m {png,jpg}, --magic {png,jpg}
