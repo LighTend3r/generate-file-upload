@@ -48,7 +48,7 @@ def main(name, payload, file, extension, bypass, magic, htaccess, debug):
         payload = b"\xff\xd8\xff\xe0" + payload.encode('utf-8')
     elif magic == "pdf": # If the user want to use the magic header
         name = f"magic_pdf_{name}"
-        payload = b"\x25\x50\x44\x46" + payload.encode('utf-8')
+        payload = b"\x25\x50\x44\x46\x2d" + payload.encode('utf-8')
     else:
         payload = payload.encode('utf-8')
 
