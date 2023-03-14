@@ -33,25 +33,34 @@ python upfile.py -b -m png
 Generate all files bypass for PHP, which contain `magicNumber + payload`
 
 
+```
+python upfile.py -ext png -h png
+```
+Generate `.htaccess` which allow execution of php whith extension .png and create `paylaod.png`
+
 -----
 
 ## Options
 ```
-usage: upfile.py [-h] [-d] [-p PAYLOAD] [-f {php}] [-ext EXTENSION] [-b] [-n NAME] [-m {png,jpg}]
+usage: upfile.py [-h] [-d] [-p <payload>] [-f {php}] [-ext <ext>] [-b] [-n <name>] [-m {png,jpg}] [-ht <ext>]
 
 Generate some payload to bypass restriction when you perform a file upload
 
 options:
   -h, --help            show this help message and exit
   -d, --debug           Seen the debug to see the process
-  -p PAYLOAD, --payload PAYLOAD
+  -p <payload>, --payload <payload>
                         The payload in the files
   -f {php}, --file {php}
                         The type of the files
-  -ext EXTENSION, --extension EXTENSION
+  -ext <ext>, --extension <ext>
                         Generate the payload with specific extension
   -b, --bypass          Bypass the restriction
-  -n NAME, --name NAME  Name of the file
+  -n <name>, --name <name>
+                        Name of the file
   -m {png,jpg}, --magic {png,jpg}
-                        Magic Header
+                        Magic Header, add the magics numbers before the payload
+  -ht <ext>, --htaccess <ext>
+                        Creates in addition a .htaccess file, which allow execution of php whith extension that you
+                        have chosen
    ```                     

