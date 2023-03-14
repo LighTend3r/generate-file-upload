@@ -11,10 +11,10 @@ def createFile(name, extension, payload,debug):
             print(f"[-] You can't use / in the extension, create the file manually : {name}.{extension}")        
     else:
         if platform.system() == 'Windows':
-            with open(f'Payloads\\{name}.{extension}', 'w') as f:
+            with open(f'Payloads\\{name}.{extension}', 'w', encoding='utf-8') as f:
                 f.write(payload)
         else:
-            with open(f'Payloads/{name}.{extension}', 'w') as f:
+            with open(f'Payloads/{name}.{extension}', 'w', encoding='utf-8') as f:
                 f.write(payload)
 
 
